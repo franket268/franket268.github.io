@@ -6,18 +6,18 @@
   <title>Android的三种动画:Property Animation,View Animation,Drawable Animation | My blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Android中动画分为三种,Property Animation,View Animation和Drawable Animation。我们也经常俗称它们为Property 动画，Tween动画和Frame动画。
-  View Animation能对view进行简单的动画操作，如透明度改变，平移，拉伸和旋转等。使用时先在res/anim文件夹下新建一个xml文件。这个文件可得亘元素可以是, , ,">
+  View Animation能对view进行简单的动画操作，如透明度改变，平移，拉伸和旋转等。使用时先在res/anim文件夹下新建一个xml文件。这个文件的根元素可以是&amp;lt;al">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android的三种动画:Property Animation,View Animation,Drawable Animation">
 <meta property="og:url" content="http://yoursite.com/2015/06/06/Animation/index.html">
 <meta property="og:site_name" content="My blog">
 <meta property="og:description" content="Android中动画分为三种,Property Animation,View Animation和Drawable Animation。我们也经常俗称它们为Property 动画，Tween动画和Frame动画。
-  View Animation能对view进行简单的动画操作，如透明度改变，平移，拉伸和旋转等。使用时先在res/anim文件夹下新建一个xml文件。这个文件可得亘元素可以是, , ,">
-<meta property="og:updated_time" content="2015-06-09T07:07:56.000Z">
+  View Animation能对view进行简单的动画操作，如透明度改变，平移，拉伸和旋转等。使用时先在res/anim文件夹下新建一个xml文件。这个文件的根元素可以是&amp;lt;al">
+<meta property="og:updated_time" content="2015-06-09T07:27:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android的三种动画:Property Animation,View Animation,Drawable Animation">
 <meta name="twitter:description" content="Android中动画分为三种,Property Animation,View Animation和Drawable Animation。我们也经常俗称它们为Property 动画，Tween动画和Frame动画。
-  View Animation能对view进行简单的动画操作，如透明度改变，平移，拉伸和旋转等。使用时先在res/anim文件夹下新建一个xml文件。这个文件可得亘元素可以是, , ,">
+  View Animation能对view进行简单的动画操作，如透明度改变，平移，拉伸和旋转等。使用时先在res/anim文件夹下新建一个xml文件。这个文件的根元素可以是&amp;lt;al">
   
     <link rel="alternative" href="/atom.xml" title="My blog" type="application/atom+xml">
   
@@ -197,7 +197,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>  Android中动画分为三种,Property Animation,View Animation和Drawable Animation。我们也经常俗称它们为Property 动画，Tween动画和Frame动画。</p>
-<p>  View Animation能对view进行简单的动画操作，如透明度改变，平移，拉伸和旋转等。使用时先在res/anim文件夹下新建一个xml文件。这个文件可得亘元素可以是<alpha>, <scale>, <translate>, <rotate>,interpolator元素或者是集合<set>。例如我在下面定义一个set，实现一个view从（0,0）坐标移到（200,0）坐标，透明度从100%变成全透明。</set></rotate></translate></scale></alpha></p>
+<p>  View Animation能对view进行简单的动画操作，如透明度改变，平移，拉伸和旋转等。使用时先在res/anim文件夹下新建一个xml文件。这个文件的根元素可以是&lt;alpha>, &lt;scale&gt;, &lt;translate>, &lt;rotate>,interpolator元素或者是集合&lt;set&gt;。例如我在下面定义一个set，实现一个view从（0,0）坐标移到（200,0）坐标，透明度从100%变成全透明。</p>
 <pre><code>&lt;set xmlns:<span class="variable">android=</span><span class="string">"http://schemas.android.com/apk/res/android"</span>
   android:<span class="variable">interpolator=</span><span class="string">"@android:interpolator/accelerate_cubic"</span>&gt;
   &lt;translate
@@ -247,7 +247,7 @@
     }
   });
 }
-</code></pre><p>  首先可以通过ValueAnimator的ofInt(),ofFloat()或ofObject()方法来设置动画的范围值。因为我想把按钮从（0，0）坐标平移到（200，0），所以我设成范围为 ValueAnimator.ofInt(0,200)。<br>  然后动画的target设为该button。<br>  动画的时间为4秒。<br>  接着为动画添加一个AnimatorUpdateListener。这个listener的作用就是实时更新button的属性值。这里就是更新button的平移X值。这里要说一下animator.getAnimatedValue()这个方法。这个方法得到的值是每一帧动画根据范围，时间和TimeInterpolator算出来的当前值。例如我的动画范围是0到200，动画时间是4秒，TimeInterpolator不设置就是使用匀速变化。所以0秒时。getAnimatedValue（）的值为0，时间为两秒时，button的要改变的属性值也应该是总值的一半。所以两秒时getAnimatedValue（）的值是（200-0）<em>（2/4）=100。时间为4秒时，该值就是（200-0)</em>(4/4) = 200，也就是我们想要设的最终值了。当然，如果想按钮平移的同时透明度也改变，我们也可以在UpdateListener里根据getAnimatedValue的值来调button.setAlpha()。<br>  最终我们可以看到按钮平移后不会回到原来位置，并且移动中的按钮是可以点击的。这就说明view的实体确实是在移动，这是跟ViewAnimation最大的不同。  </p>
+</code></pre><p>  首先可以通过ValueAnimator的ofInt(),ofFloat()或ofObject()方法来设置动画的范围值。因为我想把按钮从（0，0）坐标平移到（200，0），所以我设成范围为 ValueAnimator.ofInt(0,200)。<br>  然后动画的target设为该button。<br>  动画的时间为4秒。<br>  接着为动画添加一个AnimatorUpdateListener。这个listener的作用就是实时更新button的属性值。这里就是更新button的平移X值。这里要说一下animator.getAnimatedValue()这个方法。这个方法得到的值是每一帧动画根据范围，时间和TimeInterpolator算出来的当前值。例如我的动画范围是0到200，动画时间是4秒，TimeInterpolator不设置就是使用匀速变化。所以0秒时。getAnimatedValue（）的值为0，时间为两秒时，button的要改变的属性值也应该是总值的一半。所以两秒时getAnimatedValue（）的值是（200-0）*（2/4）=100。时间为4秒时，该值就是（200-0)*(4/4) = 200，也就是我们想要设的最终值了。当然，如果想按钮平移的同时透明度也改变，我们也可以在UpdateListener里根据getAnimatedValue的值来调button.setAlpha()。<br>  最终我们可以看到按钮平移后不会回到原来位置，并且移动中的按钮是可以点击的。这就说明view的实体确实是在移动，这是跟ViewAnimation最大的不同。  </p>
 <p>  ObjectAnimator是ValueAnimator的子类，它需要指定动画的对象和对象的属性，并且能自动更新该属性的值，而不需要像上面的ValueAnimator那样自己在UpdateListener里通过set方法手动设置每一帧的属性值。<br>  来看看ObjectAnimator实现平移按钮的代码。</p>
 <pre><code><span class="annotation">@Override</span>
 <span class="keyword">protected</span> <span class="function"><span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>{
@@ -306,9 +306,9 @@ public boolean onTouchEvent<span class="params">(MotionEvent event)</span> {
   }
 return super.onTouchEvent<span class="params">(event)</span>;
 }
-</code></pre><p>   要注意的是AnimationDrawable 的start（）方法不能再Actvity的OnCreate（）方法中调用。因为这是AnimationDrawable还没完全attached到Window上。</p>
-<pre><code>到此，三种动画都简单介绍了一遍。其中我觉得ProprtyAnimation还有很多很有用的功能没提到，以后可能会再写单独写一篇文章探讨。
-</code></pre>
+</code></pre><p>  要注意的是AnimationDrawable 的start（）方法不能再Actvity的OnCreate（）方法中调用。因为这是AnimationDrawable还没完全attached到Window上。</p>
+<p>  到此，三种动画都简单介绍了一遍。其中我觉得ProprtyAnimation还有很多很有用的功能没提到，以后可能会再写单独写一篇文章探讨。</p>
+
       
     </div>
     
