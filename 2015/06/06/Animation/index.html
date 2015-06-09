@@ -6,18 +6,18 @@
   <title>Android的三种动画:Property Animation,View Animation,Drawable Animation | My blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Android中动画分为三种,Property Animation,View Animation和Drawable Animation。我们也经常俗称它们为Property 动画，Tween动画和Frame动画。
-  View Animation能对view进行简单的动画操作，如透明度改变，平移，拉伸和旋转等。使用时先在res/anim文件夹下新建一个xml文件。这个文件的根元素可以是&amp;lt;al">
+View Animation  View Animation能对view进行简单的动画操作，如透明度改变，平移，拉伸和旋转等。使用时先在res/anim文件夹下新建一个xml文件。这个文">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android的三种动画:Property Animation,View Animation,Drawable Animation">
 <meta property="og:url" content="http://yoursite.com/2015/06/06/Animation/index.html">
 <meta property="og:site_name" content="My blog">
 <meta property="og:description" content="Android中动画分为三种,Property Animation,View Animation和Drawable Animation。我们也经常俗称它们为Property 动画，Tween动画和Frame动画。
-  View Animation能对view进行简单的动画操作，如透明度改变，平移，拉伸和旋转等。使用时先在res/anim文件夹下新建一个xml文件。这个文件的根元素可以是&amp;lt;al">
-<meta property="og:updated_time" content="2015-06-09T07:27:01.000Z">
+View Animation  View Animation能对view进行简单的动画操作，如透明度改变，平移，拉伸和旋转等。使用时先在res/anim文件夹下新建一个xml文件。这个文">
+<meta property="og:updated_time" content="2015-06-09T07:43:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android的三种动画:Property Animation,View Animation,Drawable Animation">
 <meta name="twitter:description" content="Android中动画分为三种,Property Animation,View Animation和Drawable Animation。我们也经常俗称它们为Property 动画，Tween动画和Frame动画。
-  View Animation能对view进行简单的动画操作，如透明度改变，平移，拉伸和旋转等。使用时先在res/anim文件夹下新建一个xml文件。这个文件的根元素可以是&amp;lt;al">
+View Animation  View Animation能对view进行简单的动画操作，如透明度改变，平移，拉伸和旋转等。使用时先在res/anim文件夹下新建一个xml文件。这个文">
   
     <link rel="alternative" href="/atom.xml" title="My blog" type="application/atom+xml">
   
@@ -197,7 +197,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>  Android中动画分为三种,Property Animation,View Animation和Drawable Animation。我们也经常俗称它们为Property 动画，Tween动画和Frame动画。</p>
-<p>  View Animation能对view进行简单的动画操作，如透明度改变，平移，拉伸和旋转等。使用时先在res/anim文件夹下新建一个xml文件。这个文件的根元素可以是&lt;alpha>, &lt;scale&gt;, &lt;translate>, &lt;rotate>,interpolator元素或者是集合&lt;set&gt;。例如我在下面定义一个set，实现一个view从（0,0）坐标移到（200,0）坐标，透明度从100%变成全透明。</p>
+<h2 id="View_Animation">View Animation</h2><p>  View Animation能对view进行简单的动画操作，如透明度改变，平移，拉伸和旋转等。使用时先在res/anim文件夹下新建一个xml文件。这个文件的根元素可以是&lt;alpha>, &lt;scale&gt;, &lt;translate>, &lt;rotate>,interpolator元素或者是集合&lt;set&gt;。例如我在下面定义一个set，实现一个view从（0,0）坐标移到（200,0）坐标，透明度从100%变成全透明。</p>
 <pre><code>&lt;set xmlns:<span class="variable">android=</span><span class="string">"http://schemas.android.com/apk/res/android"</span>
   android:<span class="variable">interpolator=</span><span class="string">"@android:interpolator/accelerate_cubic"</span>&gt;
   &lt;translate
@@ -226,8 +226,10 @@
 }
 </code></pre><p>  通过这段代码，我们看到当点击按钮的时候，按钮就会从左往右移动，移动同时按钮逐渐变透明。我们能发现当动画结束的时候，按钮就会回到原来的（0，0）位置，并且透明度恢复原样。除此外，当按钮移动的过程，如果点击移动中的按钮，按钮并没有反应，但是点击按钮一开始的位置，移动中的按钮会重新回到原来的位置在此向右平移。所以其实在我们看来按钮是在移动，但按钮的实体还是在原来的位置。所以我们只有点击按钮原来的位置才会对被按钮接受到。</p>
 <p>  为了解决这个问题，Property Animation产生了。</p>
-<p>  Property Animation 有三个动画执行类：ValueAnimator，ObjectAnimatior和AnimatorSet。ValueAnimator是一个可以在动画执行过程中计算动画属性值的的执行类。ObjectAnimator是ValueAnimator的子类，它使用起来比ValueAnimator简单。AnimatorSet是动画集合，它能让一组同时或者按某个排序执行。</p>
-<p>  先介绍ValueAnimator，它实现了两个重要的接口TimeInterpolator和TypeEvaluator。TimeInterpolator用来定义动画的变化率，如加速变化或者减速。TypeEvaluator是定动画操作属性的类型。作为属性动画，ValueAnimator是通过更新view的属性值来实现动画的<br>  来看看怎么使用ValueAnimator。还是使用上面水平平移的按钮为例子，下面是在java代码中用ValueAnimator实现这样的效果。</p>
+<h2 id="Peoperty_Animation">Peoperty Animation</h2><p>  Property Animation 有三个动画执行类：ValueAnimator，ObjectAnimatior和AnimatorSet。ValueAnimator是一个可以在动画执行过程中计算动画属性值的的执行类。ObjectAnimator是ValueAnimator的子类，它使用起来比ValueAnimator简单。AnimatorSet是动画集合，它能让一组同时或者按某个排序执行。</p>
+<p><strong><em>ValueAnimator</em></strong> </p>
+<p>  先介绍ValueAnimator，它实现了两个重要的接口TimeInterpolator和TypeEvaluator。TimeInterpolator用来定义动画的变化率，如加速变化或者减速。TypeEvaluator是定动画操作属性的类型。作为属性动画，ValueAnimator是通过更新view的属性值来实现动画的</p>
+<p>  来看看怎么使用ValueAnimator。还是使用上面水平平移的按钮为例子，下面是在java代码中用ValueAnimator实现这样的效果。</p>
 <pre><code><span class="annotation">@Override</span>
 <span class="keyword">protected</span> <span class="function"><span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>{
   <span class="keyword">super</span>.onCreate(savedInstanceState);
@@ -247,8 +249,14 @@
     }
   });
 }
-</code></pre><p>  首先可以通过ValueAnimator的ofInt(),ofFloat()或ofObject()方法来设置动画的范围值。因为我想把按钮从（0，0）坐标平移到（200，0），所以我设成范围为 ValueAnimator.ofInt(0,200)。<br>  然后动画的target设为该button。<br>  动画的时间为4秒。<br>  接着为动画添加一个AnimatorUpdateListener。这个listener的作用就是实时更新button的属性值。这里就是更新button的平移X值。这里要说一下animator.getAnimatedValue()这个方法。这个方法得到的值是每一帧动画根据范围，时间和TimeInterpolator算出来的当前值。例如我的动画范围是0到200，动画时间是4秒，TimeInterpolator不设置就是使用匀速变化。所以0秒时。getAnimatedValue（）的值为0，时间为两秒时，button的要改变的属性值也应该是总值的一半。所以两秒时getAnimatedValue（）的值是（200-0）*（2/4）=100。时间为4秒时，该值就是（200-0)*(4/4) = 200，也就是我们想要设的最终值了。当然，如果想按钮平移的同时透明度也改变，我们也可以在UpdateListener里根据getAnimatedValue的值来调button.setAlpha()。<br>  最终我们可以看到按钮平移后不会回到原来位置，并且移动中的按钮是可以点击的。这就说明view的实体确实是在移动，这是跟ViewAnimation最大的不同。  </p>
-<p>  ObjectAnimator是ValueAnimator的子类，它需要指定动画的对象和对象的属性，并且能自动更新该属性的值，而不需要像上面的ValueAnimator那样自己在UpdateListener里通过set方法手动设置每一帧的属性值。<br>  来看看ObjectAnimator实现平移按钮的代码。</p>
+</code></pre><p>  首先可以通过ValueAnimator的ofInt(),ofFloat()或ofObject()方法来设置动画的范围值。因为我想把按钮从（0，0）坐标平移到（200，0），所以我设成范围为 ValueAnimator.ofInt(0,200)。</p>
+<p>  然后动画的target设为该button。</p>
+<p>  动画的时间为4秒。</p>
+<p>  接着为动画添加一个AnimatorUpdateListener。这个listener的作用就是实时更新button的属性值。这里就是更新button的平移X值。这里要说一下animator.getAnimatedValue()这个方法。这个方法得到的值是每一帧动画根据范围，时间和TimeInterpolator算出来的当前值。例如我的动画范围是0到200，动画时间是4秒，TimeInterpolator不设置就是使用匀速变化。所以0秒时。getAnimatedValue（）的值为0，时间为两秒时，button的要改变的属性值也应该是总值的一半。所以两秒时getAnimatedValue（）的值是（200-0）*（2/4）=100。时间为4秒时，该值就是（200-0)*(4/4) = 200，也就是我们想要设的最终值了。当然，如果想按钮平移的同时透明度也改变，我们也可以在UpdateListener里根据getAnimatedValue的值来调button.setAlpha()。</p>
+<p>  最终我们可以看到按钮平移后不会回到原来位置，并且移动中的按钮是可以点击的。这就说明view的实体确实是在移动，这是跟ViewAnimation最大的不同。  </p>
+<p><strong><em>ObejctAnimator</em></strong></p>
+<p>  ObjectAnimator是ValueAnimator的子类，它需要指定动画的对象和对象的属性，并且能自动更新该属性的值，而不需要像上面的ValueAnimator那样自己在UpdateListener里通过set方法手动设置每一帧的属性值。</p>
+<p>  来看看ObjectAnimator实现平移按钮的代码。</p>
 <pre><code><span class="annotation">@Override</span>
 <span class="keyword">protected</span> <span class="function"><span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>{
   <span class="keyword">super</span>.onCreate(savedInstanceState);
@@ -262,33 +270,22 @@
     }
   });
 }
-</code></pre><p>  这段代码中，ObjectAnimator指定了对象为button，要更新的属性为translationX，范围为0f到200f。这里要说一下的是，属性值必须是对象里拥有的属性值，并且该属性值有setter和getter方法。如果我们要改变一个view里没有setter和getter方法的属性，我们可以自定义一个view并继承之要改变属性的那个view，然后自己在自定义view实现改属性的setter和getter方法。由于这里View里本身就含有setTranslationX和getTanslationX方法，所以我们不需要自己实现。这样ObjectAnimator才能自动更行到该属性。</p>
+</code></pre><p>这段代码中，ObjectAnimator指定了对象为button，要更新的属性为translationX，范围为0f到200f。这里要说一下的是，属性值必须是对象里拥有的属性值，并且该属性值有setter和getter方法。如果我们要改变一个view里没有setter和getter方法的属性，我们可以自定义一个view并继承之要改变属性的那个view，然后自己在自定义view实现改属性的setter和getter方法。由于这里View里本身就含有setTranslationX和getTanslationX方法，所以我们不需要自己实现。这样ObjectAnimator才能自动更行到该属性。</p>
+<p><strong><em>AnimatorSet</em></strong></p>
 <p>  AnimatorSet顾名思义就是一个动画集，你可以指定多个动画按照某个顺序执行。同样是按钮平移和变透明的例子。如下代码：</p>
-<pre><code>@Override
-protected void onCreate<span class="params">(Bundle savedInstanceState)</span> {
-  super.onCreate<span class="params">(savedInstanceState)</span>;
-  setContentView<span class="params">(R.layout.activity_main)</span>;
-  final Button button = <span class="params">(Button)</span> findViewById<span class="params">(android.R.id.button1)</span>;
-  button.setOnClickListener<span class="params">(new View.OnClickListener<span class="params">()</span> {
-    @Override public void onClick<span class="params">(View v)</span> {
-      ObjectAnimator anim1 =ObjectAnimator.ofFloat<span class="params">(button,<span class="string">"translationX"</span>,<span class="number">0</span>f,<span class="number">200</span>f)</span>;
-      ObjectAnimator anim2 =ObjectAnimator.ofFloat<span class="params">(button,<span class="string">"alpha"</span>,<span class="number">1</span>f,<span class="number">0</span>f)</span>;
-      AnimatorSet animSet = new AnimatorSet<span class="params">()</span>;
-      animSet.setDuration<span class="params">(<span class="number">4000</span>)</span>;
-      animSet.play<span class="params">(anim1)</span>.with<span class="params">(anim2)</span>;
-      animSet.start<span class="params">()</span>;
-    }                                                                         })</span>;
-}
-</code></pre><p>  这里，我们通过animSet.play(anim1).with(anim2)控制两个动画同时执行，当我我们有三个动画anim1，anim2和anim3，并希望anim1先执行，然后anim2和anim3在anim1执行完后同时执行。就可以通过animSet.play(anim2).with(anim3).after(anim1)来实现。</p>
+<p>  @Override<br>    protected void onCreate(Bundle savedInstanceState) {<br>      super.onCreate(savedInstanceState);<br>      setContentView(R.layout.activity_main);<br>      final Button button = (Button) findViewById(android.R.id.button1);<br>      button.setOnClickListener(new View.OnClickListener() {<br>        @Override public void onClick(View v) {<br>          ObjectAnimator anim1 =ObjectAnimator.ofFloat(button,”translationX”,0f,200f);<br>          ObjectAnimator anim2 =ObjectAnimator.ofFloat(button,”alpha”,1f,0f);<br>          AnimatorSet animSet = new AnimatorSet();<br>          animSet.setDuration(4000);<br>          animSet.play(anim1).with(anim2);<br>          animSet.start();<br>        }                                                                         });<br>    }</p>
+<p>  这里，我们通过animSet.play(anim1).with(anim2)控制两个动画同时执行，当我我们有三个动画anim1，anim2和anim3，并希望anim1先执行，然后anim2和anim3在anim1执行完后同时执行。就可以通过animSet.play(anim2).with(anim3).after(anim1)来实现。</p>
 <p>  由于PropertyAnimatin是在3.0以后才出现的，所以要在3.0以前使用属性动画，可以使用开源动画库nineoldandroids。</p>
-<p>  最后剩下Drawable Animation了。Drawable Animatin就像走马灯一样讲将一连串图片依次播放的动画。这个真的没什么好讲的，直接用官方文档中例子。<br>  在res/drawable中新建一个XML文件，如下：</p>
+<h2 id="Drawable_Animation">Drawable Animation</h2><p>  最后剩下Drawable Animation了。Drawable Animatin就像走马灯一样讲将一连串图片依次播放的动画。这个真的没什么好讲的，直接用官方文档中例子。</p>
+<p>  在res/drawable中新建一个XML文件，如下：</p>
 <pre><code>&lt;animation-list xmlns:<span class="variable">android=</span><span class="string">"http://schemas.android.com/apk/res/android"</span>
   android:<span class="variable">oneshot=</span><span class="string">"true"</span>&gt;
   &lt;item android:<span class="variable">drawable=</span><span class="string">"@drawable/rocket_thrust1"</span> android:<span class="variable">duration=</span><span class="string">"200"</span> /&gt;
   &lt;item android:<span class="variable">drawable=</span><span class="string">"@drawable/rocket_thrust2"</span> android:<span class="variable">duration=</span><span class="string">"200"</span> /&gt;
   &lt;item android:<span class="variable">drawable=</span><span class="string">"@drawable/rocket_thrust3"</span> android:<span class="variable">duration=</span><span class="string">"200"</span> /&gt;
 &lt;/animation-list&gt;
-</code></pre><p>  xml设置了要要播放的图片和持续时间。其中oneshot属性为true时表明动画动画完毕后就停止了并显示最后一张图片。如果为false时表明动画会循环播放。<br>  以下是java代码：</p>
+</code></pre><p>  xml设置了要要播放的图片和持续时间。其中oneshot属性为true时表明动画动画完毕后就停止了并显示最后一张图片。如果为false时表明动画会循环播放。</p>
+<p>  以下是java代码：</p>
 <pre><code>AnimationDrawable rocketAnimation;
 
 public void onCreate<span class="params">(Bundle savedInstanceState)</span> {
